@@ -3,6 +3,7 @@ import React from "react";
 import { Typography, Box, Stack } from "@mui/material";
 
 function ExerciseVideos({ name, exerciseVideos }) {
+  if (!exerciseVideos.length) return "Loading...";
   return (
     <Box sx={{ marginTop: { lg: "203px", xs: "20px" } }} p="20px">
       <Typography
@@ -23,7 +24,7 @@ function ExerciseVideos({ name, exerciseVideos }) {
         flexWrap="wrap"
         alignItems="center"
       >
-        {exerciseVideos?.slice(0, 3)?.map((item, index) => (
+        {exerciseVideos?.slice(0, 6)?.map((item, index) => (
           <a
             key={index}
             className="exercise-video"
