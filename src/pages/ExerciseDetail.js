@@ -43,8 +43,11 @@ function ExerciseDetail() {
       );
       setTargetMuscleExercises(targetMuscleExercisesData);
 
-      // const equimentExercisesData = await fetchData(`${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`, exerciseOptions);
-      // setEquipmentExercises(equimentExercisesData);
+      const equimentExercisesData = await fetchData(
+        `${exerciseDbUrl}/exercises/equipment/${exerciseDetailData.equipment}`,
+        exerciseOptions
+      );
+      setEquipmentExercises(equimentExercisesData);
     };
     fetchExercisesData();
   }, [id]);
@@ -58,7 +61,10 @@ function ExerciseDetail() {
         exerciseVideos={exerciseVideos}
         name={exerciseDetail.name}
       />
-      <SimilarExercises />
+      <SimilarExercises
+        targetMuscleExercises={targetMuscleExercises}
+        equipmentExercises={equipmentExercises}
+      />
     </Box>
   );
 }
